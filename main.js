@@ -33,11 +33,6 @@ camera.position.setZ(15);
 // basicaly we need:
 // geometry (points), material (colour/texture), lighting to see object
 
-// torus:
-const torus_geometry = new THREE.TorusGeometry(10,3,16,100);
-const torus_material = new THREE.MeshStandardMaterial({color: 0xff6347})
-const torus = new THREE.Mesh(torus_geometry, torus_material);
-
 // stars:
 const star_geometry = new THREE.SphereGeometry(0.25);
 const white_star_material = new THREE.MeshStandardMaterial({emissive: 0xffffeb})
@@ -52,21 +47,21 @@ const planet2Texture = new THREE.TextureLoader().load('./assets/mars_texture.jpg
 const planet3Texture = new THREE.TextureLoader().load('./assets/neptune_texture.jpg');
 
 const planet1 = new THREE.Mesh(
-    new THREE.SphereGeometry(3,32,32),
+    new THREE.SphereGeometry(5,32,32),
     new THREE.MeshStandardMaterial({
         map: planet1Texture,
     })
 )
 
 const planet2 = new THREE.Mesh(
-    new THREE.SphereGeometry(5,32,32),
+    new THREE.SphereGeometry(4,32,32),
     new THREE.MeshStandardMaterial({
         map: planet2Texture,
     })
 )
 
 const planet3 = new THREE.Mesh(
-    new THREE.SphereGeometry(4,32,32),
+    new THREE.SphereGeometry(5,32,32),
     new THREE.MeshStandardMaterial({
         map: planet3Texture,
     })
@@ -148,7 +143,7 @@ function addRedStar(){
 }
 
 // adding objects to scene
-scene.add(pointLightSource);
+scene.add(pointLightSource, ambientLightSource);
 scene.add(gridHelper, lightHelper);
 
 // planet rotations
